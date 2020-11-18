@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>logcollector</artifactId>
-    <description>日志生成模块</description>
+    <description>自定义日志生成模块</description>
 
     <dependencies>
         <dependency>
