@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bigdata</groupId>
+    <artifactId>bigdata</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>bigdata</name>
+    <description>数仓项目</description>
+
+    <!--模块管理-->
+    <modules>
+        <module>logcollector</module>
+    </modules>
+
+    <!--版本号统一-->
+    <properties>
+        <!--日志生成-->
+        <slf4j.version>1.7.20</slf4j.version>
+        <logback.version>1.0.7</logback.version>
+        <fastjson.version>1.2.51</fastjson.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--阿里巴巴开源json解析框架-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!--日志生成框架-->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+
+</project>
