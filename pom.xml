@@ -12,7 +12,10 @@
 
     <!--模块管理-->
     <modules>
+        <!--日志生成模块-->
         <module>logcollector</module>
+        <!--java基础模块-->
+        <module>myjava</module>
     </modules>
 
     <!--版本号统一-->
@@ -21,6 +24,8 @@
         <slf4j.version>1.7.20</slf4j.version>
         <logback.version>1.0.7</logback.version>
         <fastjson.version>1.2.51</fastjson.version>
+        <!--单元测试版本-->
+        <junit.version>4.12</junit.version>
     </properties>
 
     <dependencyManagement>
@@ -42,6 +47,14 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
+
+            <!--单元测试-->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
