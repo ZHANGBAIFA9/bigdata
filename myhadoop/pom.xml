@@ -12,5 +12,7 @@
     <artifactId>myhadoop</artifactId>
     <description>hadoop 模块</description>
 
-    
+    <dependencies>
+
+    </dependencies>
 </project>
