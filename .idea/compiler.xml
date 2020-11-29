@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="bigdata" />
         <module name="logcollector" />
+        <module name="myhadoop" />
         <module name="myjava" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bigdata" target="1.5" />
       <module name="logcollector" target="1.8" />
+      <module name="myhadoop" target="1.5" />
       <module name="myjava" target="1.5" />
     </bytecodeTargetLevel>
   </component>

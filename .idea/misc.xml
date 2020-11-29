@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/logcollector/pom.xml" />
         <option value="$PROJECT_DIR$/myjava/pom.xml" />
+        <option value="$PROJECT_DIR$/myhadoop/pom.xml" />
       </list>
     </option>
   </component>

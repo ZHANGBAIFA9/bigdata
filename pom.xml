@@ -16,6 +16,8 @@
         <module>logcollector</module>
         <!--java基础模块-->
         <module>myjava</module>
+        <!--hadoop 模块-->
+        <module>myhadoop</module>
     </modules>
 
     <!--版本号统一-->
