@@ -1,0 +1,7 @@
+<!--配置内容如下-->
+<configuration>
+    <property>
+        <name>dfs.namenode.secondary.http-address</name>
+        <value>hadoop104:9868</value>
+    </property>
+</configuration>

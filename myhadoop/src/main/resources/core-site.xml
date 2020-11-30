@@ -1,0 +1,23 @@
+<!--配置内容如下-->
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://hadoop102:8020</value>
+    </property>
+    <property>
+        <name>hadoop.tmp.dir</name>
+        <value>/soft/hadoop/data</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.centos.hosts</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.proxyuser.centos.groups</name>
+        <value>*</value>
+    </property>
+    <property>
+        <name>hadoop.http.staticuser.user</name>
+        <value>centos</value>
+    </property>
+</configuration>
