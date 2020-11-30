@@ -4,4 +4,8 @@
         <name>dfs.namenode.secondary.http-address</name>
         <value>hadoop104:9868</value>
     </property>
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///${hadoop.tmp.dir}/dfs/data1,file:///hd2/dfs/data2,file:///hd3/dfs/data3,file:///hd4/dfs/data4</value>
+    </property>
 </configuration>
