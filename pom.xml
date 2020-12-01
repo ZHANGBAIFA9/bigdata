@@ -19,7 +19,8 @@
         <!--hadoop 模块-->
         <module>myhadoop</module>
     </modules>
-
+    <!--打包-->
+    <packaging>pom</packaging>
     <!--版本号统一-->
     <properties>
         <!--日志生成-->
