@@ -30,24 +30,27 @@ hadoop3.1.3之hdfs简介
 3、hdfs组成架构
 ​    3.1、组成架构图
 ​	![1606904210541](C:\Users\ZHANGBAIFA\AppData\Roaming\Typora\typora-user-images\1606904210541.png)
-    3.2、client即客户端
-        文件切分，文件上传hdfs的时候Client将文件切分成一个一个的Block，然后进行上传
-        与NameNode交互，获取文件位置信息
-        与DataNode交互，读取或写入数据
-        Client提供一些命令来管理hdfs，比如namenode格式化
-        Client通过一些命令来访问hdfs，比如对hdfs的增删改查操作
-    3.3、Secondary NameNode:并非NameNode的热备，当NameNode挂掉的时候并不能马上替换namenode并提供服务
-        辅助namenode，分担其工作量比如定期融合Fsimage和Edite，并推送给NameNode
-        在紧急的情况下，可以辅助恢复NameNode
+​    3.2、client即客户端
+​        文件切分，文件上传hdfs的时候Client将文件切分成一个一个的Block，然后进行上传
+​        与NameNode交互，获取文件位置信息
+​        与DataNode交互，读取或写入数据
+​        Client提供一些命令来管理hdfs，比如namenode格式化
+​        Client通过一些命令来访问hdfs，比如对hdfs的增删改查操作
+​    3.3、Secondary NameNode:并非NameNode的热备，当NameNode挂掉的时候并不能马上替换namenode并提供服务
+​        辅助namenode，分担其工作量比如定期融合Fsimage和Edite，并推送给NameNode
+​        在紧急的情况下，可以辅助恢复NameNode
 4、hdfs块大小
-    4.1、hdfs中的文件在物理上是分块存储（Block），块的大小可以通过配置参数（dfsblocksize）来规定，默认
-    大小在2.x中是128M，老版本中是64M
-    
-    
-    
-    
-    
-    
-    
-    
-    
+​    4.1、hdfs中的文件在物理上是分块存储（Block），块的大小可以通过配置参数（dfsblocksize）来规定，默认
+​    大小在2.x中是128M，老版本中是64M
+​    ![1606905061510](C:\Users\ZHANGBAIFA\AppData\Roaming\Typora\typora-user-images\1606905061510.png)
+​    4.2、为什么块大小不能设置太小？
+        块大小设置太小，会增加寻址时间，程序一直在找块的开始位置
+        块大小设置太大，从磁盘传输数据的时间会明显大于定位这个块开始位置所需时间，导致程序在处理这块数据时，非常慢
+        hdfs块大小设置主要取决于磁盘传输速率
+​    
+​    
+​    
+​    
+​    
+​    
+​    
