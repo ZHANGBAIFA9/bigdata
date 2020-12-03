@@ -18,6 +18,12 @@
         <module>myjava</module>
         <!--hadoop 模块-->
         <module>myhadoop</module>
+        <!--flume 模块-->
+        <module>myflume</module>
+        <!--hive 模块-->
+        <module>myhive</module>
+        <!--kafka 模块-->
+        <module>mykafka</module>
     </modules>
     <!--打包-->
     <packaging>pom</packaging>
