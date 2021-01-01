@@ -2,14 +2,14 @@
 
 ​	1.1、JVM是Java虚拟机的缩写，是指负责将字节码解释成为特定的机器码进行运行，是运行在操作系统之上的，与硬件没有直接交互。
 
-​		![1608630166299](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608630166299.png)
+​		![1608630166299](E:\workSpace\bigdata\typora-user-images\1608630166299.png)
 
 ​	1.2、Java程序执行流程
-​		![1607929031844](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1607929031844.png)
+​		![1607929031844](E:\workSpace\bigdata\typora-user-images\1607929031844.png)
 
 [^Java程序执行流程图]: 所有Java程序均保存在*.Java文件中，即源代码，源码想要执行必须要经过javac.exe命令将其编译成.class文件，然后java.exe命令在JVM进程中解析此文件。
 
-​	![1607929304574](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1607929304574.png)
+​	![1607929304574](E:\workSpace\bigdata\typora-user-images\1607929304574.png)
 
 [^java运行时数据区]: JVM即Java虚拟机，所有程序都要求运行在jvm上，是为了可移植（跨平台）
 
@@ -27,7 +27,7 @@
 
 ### 	2.0、JVM体系概览
 
-​		![1608630370307](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608630370307.png)
+​		![1608630370307](E:\workSpace\bigdata\typora-user-images\1608630370307.png)
 
 ### 	2.1、类加载器
 
@@ -35,18 +35,18 @@
 
 ​			类加载器，负责加载class文件，class文件在文件开头有特定的文件标识，将class字节码内容加载到内存中并将这些内容转换成方法区中的运行时数据结构，并且classLoader只负责class文件的加载，至于他是否运行，则由Execution Engine决定。
 
-​			![1608630645017](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608630645017.png)
+​			![1608630645017](E:\workSpace\bigdata\typora-user-images\1608630645017.png)
 
 #### 	       2.1.2、类加载器
 
 ##### 		2.1.2.1、类加载器概述
 
-​			![1608693800219](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608693800219.png)
+​			![1608693800219](E:\workSpace\bigdata\typora-user-images\1608693800219.png)
 
 ##### 		2.1.2.2、类加载器作用
 
 ​			为什么Object、ArrayList及String等类可以直接使用？都是通过BootStrap（根类加载器）直接加载进来，因此可以直接使用。
-​			![1608694913478](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608694913478.png)
+​			![1608694913478](E:\workSpace\bigdata\typora-user-images\1608694913478.png)
 ​				​		
 
 ```java
@@ -93,13 +93,13 @@ System.out.println(myJVM.getClass().getClassLoader());
 
 ​	**每一个方法执行的同时都会创建一个栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。**每一个方法从调用直至执行完毕过程，就对应着一个栈帧在虚拟机中入栈到出栈过程。栈的大小和JVM的实现有关，通常在256k~756k之间，约等于1Mb左右。
 
-​	![1608793240350](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608793240350.png)
+​	![1608793240350](E:\workSpace\bigdata\typora-user-images\1608793240350.png)
 
-![1608558049523](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608558049523.png)
+![1608558049523](E:\workSpace\bigdata\typora-user-images\1608558049523.png)
 
-[^栈]: 栈是运行单位，存储与当前线程相关信息局部变量、程序运行状态、方法返回值等，线程（线程对象）私有		![1608518351320](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608518351320.png)
-[^栈执行顺序]: 先进后出			![1608518414528](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608518414528.png)
-[^栈保存信息]: 局部变量、操作数栈、对象地址值、栈帧，栈内存都是线程私有的，栈帧（Stack Frame）来定义栈的数据，每一个栈帧表示每个可能执行的方法。			![1608557481842](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608557481842.png)
+[^栈]: 栈是运行单位，存储与当前线程相关信息局部变量、程序运行状态、方法返回值等，线程（线程对象）私有		![1608518351320](E:\workSpace\bigdata\typora-user-images\1608518351320.png)
+[^栈执行顺序]: 先进后出			![1608518414528](E:\workSpace\bigdata\typora-user-images\1608518414528.png)
+[^栈保存信息]: 局部变量、操作数栈、对象地址值、栈帧，栈内存都是线程私有的，栈帧（Stack Frame）来定义栈的数据，每一个栈帧表示每个可能执行的方法。			![1608557481842](E:\workSpace\bigdata\typora-user-images\1608557481842.png)
 [^栈帧]: 局部变量表，操作树栈，指向运行时常量池的引用，方法返回地址和动态链接。
 
 **局部变量表（Local Variables）**:方法的局部变量或形参，其以变量槽（solt）为最小单位，只允许保存32为长度的变量，如果超过32位则会开辟两个连续的solt(64位长度，long和double)；
@@ -129,13 +129,13 @@ public static void m1() {
 
 ##### 		2.2.2.0、堆结构概览
 
-​			![1608794752773](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608794752773.png)
+​			![1608794752773](E:\workSpace\bigdata\typora-user-images\1608794752773.png)
 
-​			![1608797104261](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608797104261.png)
+​			![1608797104261](E:\workSpace\bigdata\typora-user-images\1608797104261.png)
 
-![1608796086917](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608796086917.png)
+![1608796086917](E:\workSpace\bigdata\typora-user-images\1608796086917.png)
 
-![1608795572887](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608795572887.png)
+![1608795572887](E:\workSpace\bigdata\typora-user-images\1608795572887.png)
 
 ​	
 
@@ -200,7 +200,7 @@ public static void m1() {
 ​		**-Xms：**设置堆空间（年轻代+年老代）的初始内存大小
 ​		**-Xmx：**设置堆空间（年轻代+年老代）的最大内存大小
 
-​		**-XX:+PrintGCDetails：**输出详细gc处理日志		![1608792676486](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608792676486.png)
+​		**-XX:+PrintGCDetails：**输出详细gc处理日志		![1608792676486](E:\workSpace\bigdata\typora-user-images\1608792676486.png)
 
 ​		**OOM时导出堆到文件:** -Xms1m -Xmx8m -XX:+HeapDumpOnOutOfMemoryError
 
@@ -210,13 +210,13 @@ public static void m1() {
 
 #### 	4.1、堆+栈+方法区的交互关系
 
-​	![1608794156503](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608794156503.png)
+​	![1608794156503](E:\workSpace\bigdata\typora-user-images\1608794156503.png)
 
 
 
 ## 5、GC日志信息
 
-​		![1608796920660](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608796920660.png)
+​		![1608796920660](E:\workSpace\bigdata\typora-user-images\1608796920660.png)
 
 
 
@@ -224,7 +224,7 @@ public static void m1() {
 
 #### 	6.1、引用计数法
 
-![1608799272936](C:\Users\浩鲸新智能\AppData\Roaming\Typora\typora-user-images\1608799272936.png)
+![1608799272936](E:\workSpace\bigdata\typora-user-images\1608799272936.png)
 
 #### 	6.2、复制算法
 
@@ -242,5 +242,3 @@ public static void m1() {
 ​		标记一遍，移动一遍
 
 ​		**注：针对年老代**
-
-## 7、本文档仅作为内部分享
