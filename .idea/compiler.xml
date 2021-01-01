@@ -7,15 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="logcollector" />
+        <module name="myflume" />
         <module name="myhadoop" />
+        <module name="myhive" />
         <module name="myjava" />
+        <module name="mykafka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bigdata" target="1.5" />
       <module name="logcollector" target="1.8" />
+      <module name="myflume" target="1.5" />
       <module name="myhadoop" target="1.5" />
+      <module name="myhive" target="1.5" />
       <module name="myjava" target="1.5" />
+      <module name="mykafka" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

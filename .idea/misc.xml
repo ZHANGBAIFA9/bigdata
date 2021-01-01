@@ -7,6 +7,9 @@
         <option value="$PROJECT_DIR$/logcollector/pom.xml" />
         <option value="$PROJECT_DIR$/myjava/pom.xml" />
         <option value="$PROJECT_DIR$/myhadoop/pom.xml" />
+        <option value="$PROJECT_DIR$/myflume/pom.xml" />
+        <option value="$PROJECT_DIR$/mykafka/pom.xml" />
+        <option value="$PROJECT_DIR$/myhive/pom.xml" />
       </list>
     </option>
   </component>
