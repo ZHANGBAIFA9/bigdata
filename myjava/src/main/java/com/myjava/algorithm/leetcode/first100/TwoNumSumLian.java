@@ -26,13 +26,91 @@ package com.myjava.algorithm.leetcode.first100;
  */
 public class TwoNumSumLian {
     public static void main(String[] args) {
+        int[] l1 = {2,4,3} ;
+        int[] l2 = {5,6,4} ;
+        // 我得处理办法
+        int[] answers = answer(l1, l2);
+        for(int answer : answers){
+            System.out.print(answer + "\t");
+        }
 
+        System.out.println("=======================");
+        //给的标准答案
+        ListNode l3 = new ListNode(234) ;
+        ListNode l4 = new ListNode(564) ;
+        ListNode answers2 = answers2(l3 , l4) ;
+        System.out.println(answers2.val);
     }
 
+    /**
+     *      标准答案：1、???
+     * @param l1
+     * @param l2
+     * @return
+     */
+    private static ListNode answers2(ListNode l1, ListNode l2) {
+        ListNode pre = new ListNode(0);
+        ListNode cur = pre;
+        int carry = 0;
+        while(l1 != null || l2 != null) {
+            int x = l1 == null ? 0 : l1.val;
+            int y = l2 == null ? 0 : l2.val;
+            int sum = x + y + carry;
+
+            carry = sum / 10;
+            sum = sum % 10;
+            cur.next = new ListNode(sum);
+
+            cur = cur.next;
+            if(l1 != null)
+                l1 = l1.next;
+            if(l2 != null)
+                l2 = l2.next;
+        }
+        if(carry == 1) {
+            cur.next = new ListNode(carry);
+        }
+        return pre.next;
+    }
+
+    /**
+     *  首先是我的做法： 简单粗暴，不考虑进位退位问题
+     *                  1、根据示例1可知数组需要被转换顺序计算，求和后需转换顺序在返回
+     *                  2、第一步，将传进来的参数进行转换，倒序赋值给sb，然后转成Integer,进行计算
+     *                  3、第二步，将计算结果转成字符数组，然后进行调转顺序，赋值给需返回的int类型数组
+     * @param src1
+     * @param src2
+     * @return
+     */
     public static int[] answer(int[] src1 , int[] src2){
-
-        return null ;
+        int s1 = 0 ;
+        int s2 = 0 ;
+        StringBuilder sb1 = new StringBuilder();
+        for(int i = src1.length - 1; i >= 0 ; i--){
+            sb1.append(src1[i]) ;
+        }
+        StringBuilder sb2 = new StringBuilder();
+        for(int i = src2.length - 1 ; i >= 0 ; i--) {
+            sb2.append(src2[i]) ;
+        }
+        s1 = Integer.parseInt(sb1.toString());
+        s2 = Integer.parseInt(sb2.toString()) ;
+        //
+        String dest = String.valueOf(s1 + s2);
+        char[] chars = dest.toCharArray();
+        int[] res  = new int[chars.length];
+        int count = 0 ;
+        for ( int i = chars.length -1 ; i >= 0  ;i--){
+            res[count] = Integer.parseInt(String.valueOf(chars[i])) ;
+            count++ ;
+        }
+        return res ;
     }
-
-
+    
 }
+// 标准答案，自定义一个类，类属性包含 值： val  ， 下个节点值 ListNode 带参构造函数
+class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int x) { val = x; }
+ }
