@@ -39,7 +39,7 @@ public class TwoNumSumLian {
         ListNode l3 = new ListNode(234) ;
         ListNode l4 = new ListNode(564) ;
         ListNode answers2 = answers2(l3 , l4) ;
-        System.out.println(answers2.val);
+        System.out.println(answers2.val + " \t" + answers2.next);
     }
 
     /**
