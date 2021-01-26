@@ -40,6 +40,14 @@ public class TwoNumSumLian {
         ListNode l4 = new ListNode(564) ;
         ListNode answers2 = answers2(l3 , l4) ;
         System.out.println(answers2.val + " \t" + answers2.next);
+
+        //addTwoNumbers();
+
+
+
+
+
+
     }
 
     /**
@@ -72,6 +80,60 @@ public class TwoNumSumLian {
         }
         return pre.next;
     }
+
+    /**
+     *           标准答案2：
+     * @param l1
+     * @param l2
+     * @return
+     */
+   public static ListNode  addTwoNumbers(ListNode l1, ListNode l2){
+       ListNode root=new ListNode(-1);
+       ListNode r=root;
+       ListNode ll1=l1,ll2=l2;
+       //两数相加
+       while(ll1 != null && ll2 != null){
+           int tmp=ll1.val+ll2.val;
+           ListNode node=new ListNode(tmp);
+           r.next=node;
+           r=node;
+           ll1=ll1.next;
+           ll2=ll2.next;
+       }
+       while(ll1 != null){
+           ListNode node=new ListNode(ll1.val);
+           r.next=node;
+           r=node;
+           ll1=ll1.next;
+       }
+       while(ll2 != null){
+           ListNode node=new ListNode(ll2.val);
+           r.next=node;
+           r=node;
+           ll2=ll2.next;
+       }
+       r=root.next;
+       //遍历并处理其中的二位数
+       while(r != null){
+           ListNode next=r.next;
+           if(next != null){
+               //将两位数转为一位数
+               if( r.val / 10 > 0){
+                   next.val=next.val + r.val / 10;
+                   r.val=r.val % 10;
+               }
+           }else if(r.val>=10){//最后一个节>=10
+               next=new ListNode(r.val/10);
+               r.val=r.val%10;
+               r.next=next;
+           }
+           r=next;
+       }
+       return root.next;
+   }
+
+
+
 
     /**
      *  首先是我的做法： 简单粗暴，不考虑进位退位问题
