@@ -26,8 +26,9 @@ package com.myjava.algorithm.leetcode.first100;
 public class IntegerInversion {
 
     public static void main(String[] args) {
-        int x = 0 ;
-        System.out.println(reverse(x));
+        int x = -173 ;
+//        System.out.println(reverse(x));
+        System.out.println(reverse1(x));
     }
 
     /**
@@ -55,7 +56,10 @@ public class IntegerInversion {
     }
 
     /**
-     *
+     * 标准答案解析：
+     *              1、对传入参数进行循环判断，不为0则进入循环，设置初始值
+     *              2、传入参数对10取模，取模数据作为首位，传入参数对10取整，取整数据不为0继续循环，
+     *              3、每次循环进行对（初始值*10）+ （当前参数对10取模） 赋值
      * @param x
      * @return
      */
