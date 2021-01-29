@@ -72,5 +72,4 @@ public class IntegerInversion {
         }
         return ans;
     }
-
 }
