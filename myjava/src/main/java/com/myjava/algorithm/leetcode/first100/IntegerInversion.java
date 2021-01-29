@@ -30,6 +30,13 @@ public class IntegerInversion {
         System.out.println(reverse(x));
     }
 
+    /**
+     *  想法： 1、接收参数转成string字符串处理，字符串转成字符数组
+     *         2、对参数首位字符进行判断，是否带有负号，若有则从第二位字符进行处理，若无直接处理
+     *         3、对字符数组进行处理乘10的指数次幂，处理后返回
+     * @param x
+     * @return
+     */
     public static int reverse(int x) {
         String src = String.valueOf(x);
         char[] dest_c = src.toCharArray();
@@ -44,7 +51,26 @@ public class IntegerInversion {
             }
             dest_i = -dest_i ;
         }
-
         return dest_i ;
     }
+
+    /**
+     *
+     * @param x
+     * @return
+     */
+    public static int reverse1(int x) {
+        int ans = 0;
+        while (x != 0) {
+            int pop = x % 10;
+            if (ans > Integer.MAX_VALUE / 10 || (ans == Integer.MAX_VALUE / 10 && pop > 7))
+                return 0;
+            if (ans < Integer.MIN_VALUE / 10 || (ans == Integer.MIN_VALUE / 10 && pop < -8))
+                return 0;
+            ans = ans * 10 + pop;
+            x /= 10;
+        }
+        return ans;
+    }
+
 }
