@@ -34,8 +34,8 @@
         scp -r ZooKeeper-3.4.6/ node3:/opt/
         scp -r ZooKeeper-3.4.6/ node4:/opt/
     3.7、创建数据目录、日志目录、及myid
-        mkdir /opt/zookeeper-3.4.6/data
-        mkdir /var/bjsxt/zookeeper/datalog
+        mkdir -p /opt/zookeeper-3.4.6/data
+        mkdir -p /var/bjsxt/zookeeper/datalog
         echo 1 > /opt/zookeeper-3.4.6/data/myid
     3.8、启动报错问题，找不到java环境
         3.8.1、zkServer.sh文件开头添加
