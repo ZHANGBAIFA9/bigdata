@@ -12,16 +12,18 @@
         <module name="myhive" />
         <module name="myjava" />
         <module name="mykafka" />
+        <module name="myzk" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bigdata" target="1.5" />
-      <module name="logcollector" target="1.8" />
-      <module name="myflume" target="1.5" />
-      <module name="myhadoop" target="1.5" />
-      <module name="myhive" target="1.5" />
-      <module name="myjava" target="1.5" />
-      <module name="mykafka" target="1.5" />
+      <module name="bigdata" target="8" />
+      <module name="logcollector" target="8" />
+      <module name="myflume" target="8" />
+      <module name="myhadoop" target="8" />
+      <module name="myhive" target="8" />
+      <module name="myjava" target="8" />
+      <module name="mykafka" target="8" />
+      <module name="myzk" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

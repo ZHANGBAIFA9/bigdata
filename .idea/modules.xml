@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/myhive/myhive.iml" filepath="$PROJECT_DIR$/myhive/myhive.iml" />
       <module fileurl="file://$PROJECT_DIR$/myjava/myjava.iml" filepath="$PROJECT_DIR$/myjava/myjava.iml" />
       <module fileurl="file://$PROJECT_DIR$/mykafka/mykafka.iml" filepath="$PROJECT_DIR$/mykafka/mykafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myzk/myzk.iml" filepath="$PROJECT_DIR$/myzk/myzk.iml" />
     </modules>
   </component>
 </project>
