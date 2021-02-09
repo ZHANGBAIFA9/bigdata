@@ -42,3 +42,8 @@
             export JAVA_HOME=/usr/java/default
         3.8.2、修改该句为
             nohup "$JAVA_HOME/bin/java" "-Dzookeeper.log.dir=${ZOO_LOG_DIR}" "-Dzookeeper.root.logger=${ZOO_LOG4J_PROP}"
+
+    3.9、启动进入zkCli.sh依旧报错找不到Java环境
+        修改zkEnv.sh 首行添加
+        export JAVA_HOME=/usr/java/default
+        再次启动进入zkCli.sh成功
