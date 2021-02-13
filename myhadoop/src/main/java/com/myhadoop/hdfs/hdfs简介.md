@@ -1,5 +1,7 @@
-hadoop3.1.3之hdfs简介
-1、产生背景及定义
+# hadoop之hdfs简介
+
+### 1、产生背景及定义
+
 ​    1.1、产生背景：
 ​        随着数据量得越来越大，在一个操作系统存不下所有得数据，那么就需要分配到更多得操作系统管理得磁盘中，但是
 ​        不方便管理和维护，迫切需要一种操作系统来管理多台机器上得文件，这就是分布式文件管理系统。hdfs只是分布式
@@ -9,7 +11,9 @@ hadoop3.1.3之hdfs简介
 ​        分布式的，由很多服务器联合起来实现其功能，集群中的服务器有各自的角色。
 ​        hdfs使用场景：适合一次写入，多次读出的场景，且不支持文件修改哦，适合用来做数据分析，并不适合用来做网盘应
 ​        用。
-2、hdfs优缺点
+
+### 2、hdfs优缺点
+
 ​    2.1、优点：
 ​        2.1.1、高容错性
 ​            数据自动保存多个副本，通过增加副本的形式提高容错性
@@ -27,7 +31,9 @@ hadoop3.1.3之hdfs简介
 ​        2.2.3、不支持并发写入、文件随机修改
 ​            一个文件只能有一个线程写，不允许多个线程同时写
 ​            仅支持数据append（追加），不支持文件随机修改
-3、hdfs组成架构
+
+### 3、hdfs组成架构
+
 ​    3.1、组成架构图
 ​	![1606904210541](C:\Users\ZHANGBAIFA\AppData\Roaming\Typora\typora-user-images\1606904210541.png)
 ​    3.2、client即客户端
@@ -39,7 +45,9 @@ hadoop3.1.3之hdfs简介
 ​    3.3、Secondary NameNode:并非NameNode的热备，当NameNode挂掉的时候并不能马上替换namenode并提供服务
 ​        辅助namenode，分担其工作量比如定期融合Fsimage和Edite，并推送给NameNode
 ​        在紧急的情况下，可以辅助恢复NameNode
-4、hdfs块大小
+
+### 4、hdfs块大小
+
 ​    4.1、hdfs中的文件在物理上是分块存储（Block），块的大小可以通过配置参数（dfsblocksize）来规定，默认
 ​    大小在2.x中是128M，老版本中是64M
 ​    ![1606905061510](C:\Users\ZHANGBAIFA\AppData\Roaming\Typora\typora-user-images\1606905061510.png)
@@ -47,9 +55,12 @@ hadoop3.1.3之hdfs简介
 ​        块大小设置太小，会增加寻址时间，程序一直在找块的开始位置
 ​        块大小设置太大，从磁盘传输数据的时间会明显大于定位这个块开始位置所需时间，导致程序在处理这块数据时，非常慢
 ​        hdfs块大小设置主要取决于磁盘传输速率
-​    
-​    
-​    
-​    
-​    
-​ 
+
+###  5、hdfs数据写入流程
+
+​	![1613185588273](C:\Users\ZHANGBAIFA\AppData\Roaming\Typora\typora-user-images\1613185588273.png)
+
+###  6、hdfs数据读取流程
+
+​	![1613185637531](C:\Users\ZHANGBAIFA\AppData\Roaming\Typora\typora-user-images\1613185637531.png)
+
