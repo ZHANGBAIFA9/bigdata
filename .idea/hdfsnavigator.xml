@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="HadoopNavigator.Project.Settings">
+    <connections>
+      <fsconnection id="16531fbc-7d9d-4fbf-9224-b61ecdd5a48a">
+        <database>
+          <name value="node1" />
+          <description value="" />
+          <active value="true" />
+          <os-authentication value="false" />
+          <database-type value="HDFS" />
+          <database-version value="9999.0" />
+          <user value="root" />
+          <password value="" />
+          <mapreduce-host value="" />
+          <mapreduce-port value="" />
+          <hdfs-host value="node1" />
+          <hdfs-port value="8020" />
+        </database>
+      </fsconnection>
+      <fsconnection id="ed2e0f89-2177-4192-b8ad-1732aba3bef5">
+        <database>
+          <name value="node2" />
+          <description value="" />
+          <active value="true" />
+          <os-authentication value="false" />
+          <database-type value="HDFS" />
+          <database-version value="9999.0" />
+          <user value="root" />
+          <password value="" />
+          <mapreduce-host value="" />
+          <mapreduce-port value="" />
+          <hdfs-host value="node2" />
+          <hdfs-port value="8020" />
+        </database>
+      </fsconnection>
+    </connections>
+    <general-settings>
+      <regional-settings>
+        <locale value="zh-CN" />
+      </regional-settings>
+      <browser-settings>
+        <browserdisplaymode value="Multiple tabs tree" />
+      </browser-settings>
+    </general-settings>
+  </component>
+</project>
