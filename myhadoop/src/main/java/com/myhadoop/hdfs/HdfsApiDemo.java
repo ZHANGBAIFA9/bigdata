@@ -151,4 +151,14 @@ public class HdfsApiDemo {
         FileOutputStream fos = new FileOutputStream(new File("D:/wordcount.txt"));
         IOUtils.copyBytes(fsDataInputStream,fos,1024,true);
     }
+    //获取文件块信息
+    @Test
+    public void getFileStatusLocation() throws IOException {
+        FileStatus fileStatus = fileSystem.getFileStatus(new Path("/wordcount.txt"));
+        BlockLocation[] fileBlockLocations = fileSystem.getFileBlockLocations(fileStatus, 0, fileStatus.getLen());
+        for(BlockLocation fileBlockLocation:fileBlockLocations){
+            System.out.println(fileBlockLocation);
+        }
+    }
+
 }
