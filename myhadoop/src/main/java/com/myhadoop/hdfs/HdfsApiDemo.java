@@ -1,10 +1,7 @@
 package com.myhadoop.hdfs;
 
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.FSDataOutputStream;
-import org.apache.hadoop.fs.FileStatus;
-import org.apache.hadoop.fs.FileSystem;
-import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.fs.*;
 import org.apache.hadoop.io.IOUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -12,6 +9,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
@@ -142,5 +140,15 @@ public class HdfsApiDemo {
         FileInputStream fileInputStream = new FileInputStream(new File("D:\\hh.txt"));
 
         IOUtils.copyBytes(fileInputStream,fsDataOutputStream,1024,true);
+    }
+
+    /**
+     * 文件下载测试
+     */
+    @Test
+    public void downLoad() throws IOException {
+        FSDataInputStream fsDataInputStream = fileSystem.open(new Path("/wordcount.txt"));
+        FileOutputStream fos = new FileOutputStream(new File("D:/wordcount.txt"));
+        IOUtils.copyBytes(fsDataInputStream,fos,1024,true);
     }
 }
