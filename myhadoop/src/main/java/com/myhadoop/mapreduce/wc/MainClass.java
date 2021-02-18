@@ -21,6 +21,7 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  * 注： 提交集群运行要添加 job.setJarByClass(MainClass.class); 指定当前class为入口
  */
 //注： 如不需要当前目录下的配置文件，可将resources设置为 test resources root 然后重新Build即可
+// 或将resource 下配置文件先移除在打包，本地调试时重新添加
 public class MainClass {
     //初始化本地配置
     private static Configuration conf = new Configuration(true);
