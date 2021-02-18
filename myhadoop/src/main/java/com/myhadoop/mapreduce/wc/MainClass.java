@@ -18,9 +18,9 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  *  打包上传到集群运行，project structure --> artifacts --> + jar --> empty --> 给jar起名wc
  *  --> 将编译后的类拉到左边，应用保存 --> 点击Build --> Build Artifacts --> wc 进行打包
  *
- *  注： 如不需要当前目录下的配置文件，可将resources设置为 test resources root 然后重新Build即可
- *
+ * 注： 提交集群运行要添加 job.setJarByClass(MainClass.class); 指定当前class为入口
  */
+//注： 如不需要当前目录下的配置文件，可将resources设置为 test resources root 然后重新Build即可
 public class MainClass {
     //初始化本地配置
     private static Configuration conf = new Configuration(true);
@@ -44,6 +44,7 @@ public class MainClass {
         job.setOutputValueClass(LongWritable.class);
         //设置作业名称
         job.setJobName("wc");
+        job.setJarByClass(MainClass.class);
         //设置作业输入输出路径
         FileInputFormat.addInputPath(job,new Path(args[0]));
         FileOutputFormat.setOutputPath(job,new Path(args[1]));
