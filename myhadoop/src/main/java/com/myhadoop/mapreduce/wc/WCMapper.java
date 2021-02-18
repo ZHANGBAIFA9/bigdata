@@ -25,6 +25,8 @@ public class WCMapper extends Mapper<LongWritable,Text,Text,LongWritable> {
     //被处理文件每一行都会调用一次map方法
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+        //方便查看源码调试，进入map后线程休眠
+//        Thread.sleep(Long.MAX_VALUE);
         //获取当前行文本的内容
         String line = value.toString();
         //按空格进行切分
