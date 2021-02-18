@@ -19,6 +19,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
  *  --> 将编译后的类拉到左边，应用保存 --> 点击Build --> Build Artifacts --> wc 进行打包
  *
  * 注： 提交集群运行要添加 job.setJarByClass(MainClass.class); 指定当前class为入口
+ *
+ *  集群运行测试：yarn jar wc.jar com.myhadoop.mapreduce.wc.MainClass /wc/input /wc/output3
  */
 //注： 如不需要当前目录下的配置文件，可将resources设置为 test resources root 然后重新Build即可
 // 或将resource 下配置文件先移除在打包，本地调试时重新添加
