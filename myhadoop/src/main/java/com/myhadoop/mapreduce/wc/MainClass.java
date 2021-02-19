@@ -50,7 +50,13 @@ public class MainClass {
         job.setJarByClass(MainClass.class);
         //设置作业输入输出路径
         FileInputFormat.addInputPath(job,new Path(args[0]));
-        FileOutputFormat.setOutputPath(job,new Path(args[1]));
+        //确保输出路径不存在，以免报错
+        Path outputPath = new Path(args[1]);
+        if(outputPath.getFileSystem(conf).isDirectory(outputPath)){
+            //如果存在则删除
+            outputPath.getFileSystem(conf).delete(outputPath,true) ;
+        }
+        FileOutputFormat.setOutputPath(job,outputPath);
         //提交作业,true 打印每秒计算信息
         job.waitForCompletion(true) ;
     }
