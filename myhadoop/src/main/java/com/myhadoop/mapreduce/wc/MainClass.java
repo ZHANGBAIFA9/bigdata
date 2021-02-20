@@ -1,6 +1,7 @@
 package com.myhadoop.mapreduce.wc;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -35,6 +36,12 @@ public class MainClass {
         }
         //设置本地模式运行
         conf.set("mapreduce.framework.name","local");
+        // 调节切片大小设置 Math.max(minSize, Math.min(maxSize, blockSize));
+        //调节切片大小比块（128M）大,调节minSize大小大于128M即可
+        //conf.set(FileInputFormat.SPLIT_MINSIZE,"");
+        // 调节切片大小比块（128M）小，调节maxSize小于128M 即可
+        conf.set(FileInputFormat.SPLIT_MAXSIZE,"") ;
+
         Job job = Job.getInstance(conf);
         // 设置参数
         //设置map类相关
