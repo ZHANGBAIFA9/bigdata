@@ -52,6 +52,8 @@ public class MainClass {
         job.setReducerClass(WCReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(LongWritable.class);
+        //设置reducetask数量
+        job.setNumReduceTasks(1);
         //设置作业名称
         job.setJobName("wc");
         job.setJarByClass(MainClass.class);
