@@ -54,6 +54,7 @@ public class MainClass {
         job.setOutputValueClass(LongWritable.class);
         //设置reducetask数量
         job.setNumReduceTasks(1);
+        job.setPartitionerClass(WCPartitioner.class);
         //设置作业名称
         job.setJobName("wc");
         job.setJarByClass(MainClass.class);
