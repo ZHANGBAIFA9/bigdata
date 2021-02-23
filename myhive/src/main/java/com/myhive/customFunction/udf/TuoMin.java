@@ -2,7 +2,6 @@ package com.myhive.customFunction.udf;
 
 import org.apache.hadoop.hive.ql.exec.UDF;
 import org.apache.hadoop.io.Text;
-import org.json.JSONException;
 
 /**
  * @Version 1.0
