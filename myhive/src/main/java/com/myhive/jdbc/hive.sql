@@ -92,7 +92,35 @@ sum(duration ) sdura,
 sum(drop_num)/sum(duration) drop_rate
 from jizhan
 group by imei
+order by drop_rate desc limit 20;
+-- 数据统计
+from jizhan
+insert overwrite table jizhan_result
+select imei,sum(drop_num) sdrop,sum(duration ) sdura,
+sum(drop_num)/sum(duration) drop_rate
+group by imei
 order by drop_rate desc;
 
+
+-- word count 
+create external table if not exists wc (
+line string comment '单行数据'
+)comment '数据外部表' location '/usr';
+
+-- word count 结果表
+create table if not exists wc_result(
+word string comment '单词',
+num int comment '数量'
+)comment 'word count 结果表'
+row format delimited fields terminated by ',' lines terminated by '\n' ;
+
+-- 数据抽取
+insert overwrite table wc_result
+select 
+ww.word as word,
+count(1) as num
+from 
+(select explode(split(line , ' ')) word from wc)ww
+group by ww.word ;
 
 
