@@ -129,3 +129,23 @@ select word,count(word) count
 group by word;
 
 
+
+-- 新建分桶表
+create table if not exists psnbucket(
+id int comment '序号',
+name string comment '姓名',
+age int comment '年龄'
+)comment '分桶表'
+clustered by (age) into 4 buckets
+row format delimited fields terminated by ',';
+--开启分桶支持
+set hive.enforce.bucketing=true;
+--数据加载
+insert into table psnbucket select id, name, age from psn31;
+-- 数据抽取，在分桶列上进行选择，共四个桶，要第二个桶和第四个桶数据
+select id, name, age from psnbucket tablesample(bucket 2 out of 2 on age);
+--bucket 指定第几个桶，out of 桶数据取值因子，及需要第三个桶的1/2部分数据 4(桶数)/8(因子)
+select id, name, age from psnbucket tablesample(bucket 3 out of 8 on age);
+
+
+
