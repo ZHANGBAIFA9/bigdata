@@ -51,3 +51,48 @@ collection items terminated by '-'
 map keys terminated by ':'
 lines terminated by "\n" ;
 
+-- 数据加载
+load data local inpath '/root/data/person.txt' into table person5 ;
+
+
+
+-- 创建基站表
+create table if not exists jizhan(
+record_time string comment '通话时间',
+imei int comment '基站编号',
+cell string comment '手机编号',
+ph_num int comment '',
+call_num int comment '',
+drop_num int comment '掉话的秒数',
+duration int comment '通话持续总秒数',
+drop_rate double comment '',
+net_type string comment '',
+erl int  comment ''
+)comment '基站基础信息表'
+row format delimited fields terminated by ',' lines terminated by "\n";
+
+
+-- 基站统计结果表
+create table if not exists jizhan_result(
+imei string comment "基站编号",
+drop_num int comment "掉话总时长",
+duration int comment "通话总时长",
+drop_rate double comment "掉话率 drop_num除以 duration"
+)comment '基站统计结果表';
+
+-- 数据拉取
+load data local inpath '/root/data/imei.csv' into table jizhan ;
+
+-- 数据统计
+insert into jizhan_result
+select 
+imei,
+sum(drop_num) sdrop,
+sum(duration ) sdura,
+sum(drop_num)/sum(duration) drop_rate
+from jizhan
+group by imei
+order by drop_rate desc;
+
+
+
