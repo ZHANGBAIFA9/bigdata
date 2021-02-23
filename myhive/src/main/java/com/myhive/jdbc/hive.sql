@@ -142,9 +142,9 @@ row format delimited fields terminated by ',';
 set hive.enforce.bucketing=true;
 --数据加载
 insert into table psnbucket select id, name, age from psn31;
--- 数据抽取，在分桶列上进行选择，共四个桶，要第二个桶和第四个桶数据
+-- 数据抽取，在分桶列上进行选择，共四个桶，要第二个桶和第四个桶数据，2 ， 2 + 2 
 select id, name, age from psnbucket tablesample(bucket 2 out of 2 on age);
---bucket 指定第几个桶，out of 桶数据取值因子，及需要第三个桶的1/2部分数据 4(桶数)/8(因子)
+--bucket 指定第几个桶，out of 桶数据取值因子，及需要第三个桶的1/2部分数据 4(桶数)/8(因子) 
 select id, name, age from psnbucket tablesample(bucket 3 out of 8 on age);
 
 
