@@ -122,5 +122,10 @@ count(1) as num
 from 
 (select explode(split(line , ' ')) word from wc)ww
 group by ww.word ;
+-- 数据抽取
+from (select explode(split(line,' ')) word from words) tmp
+insert into wc_count
+select word,count(word) count
+group by word;
 
 
