@@ -17,12 +17,12 @@ public class HiveJdbcClient2 {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Connection conn = DriverManager.getConnection("jdbc:hive2://node2,node3,node4/default;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2_zk", "root", "");
+        Connection conn = DriverManager.getConnection("jdbc:hive2://node2,node3,node4/bigdata;serviceDiscoveryMode=zooKeeper;zooKeeperNamespace=hiveserver2_zk", "root", "");
         Statement stmt = conn.createStatement();
         String sql = "select * from person";
         ResultSet res = stmt.executeQuery(sql);
         while (res.next()) {
-            System.out.println(res.getString(1));
+            System.out.println(res.getString(1)+"-" + res.getString("name"));
         }
     }
 
