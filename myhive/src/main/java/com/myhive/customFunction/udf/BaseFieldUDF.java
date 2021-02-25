@@ -18,7 +18,6 @@ public class BaseFieldUDF extends UDF {
             return "" ;
         }
         JSONObject baseJson = new JSONObject(log[1].trim());
-
         String result = "" ;
         if("et".equals(key)){
             if(baseJson.has("et")){
