@@ -1,0 +1,32 @@
+1、介绍跃点
+    收集s102 、 s103 、s104 上的数据到 hdfs
+    s102 、 s103 、s104 source :tailDir
+    s102 、 s103 、s104 sink :arvo
+    s105 source : arvo
+    s105 sink : hdfs
+
+2、准备数据
+    xcall.sh mkdir ~/log
+
+    102文件夹log中准备数据：102
+    			102
+    			102
+    			。。。
+    103文件夹log中准备数据：103
+    			103
+    			103
+    			。。。
+    104文件夹log中准备数据：104
+    			104
+    			104
+    			。。。
+3、配置s102 - s105 flume
+    xsync.sh /soft/flume/
+    xsync.sh /soft/apache-flume-1.8.0-bin/
+
+    环境变量
+    su root
+    xsync.sh /etc/profile
+
+    所有节点生效环境变量
+    source /etc/profile

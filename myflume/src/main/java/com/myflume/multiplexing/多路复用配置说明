@@ -1,0 +1,15 @@
+1、比较实用的channel
+2、通过event的头信息，自动选择不同的channel进行处理
+3、相当于分区操作
+配置过程：
+    1、设置
+        source ：netcat
+        channel: memory / file
+        sink: file_roll  //实例化到磁盘
+    2、设置拦截器
+        static 静态拦截器
+    3、启动 flume 服务
+        flume-ng agent -f c_mutiplexing.conf -n a1
+    4、测试
+        启动netcat
+            nc s101 8888

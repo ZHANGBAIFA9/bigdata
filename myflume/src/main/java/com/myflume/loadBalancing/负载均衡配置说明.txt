@@ -1,0 +1,15 @@
+1、轮询方式 ： round_robin
+2、随机方式 ： random
+多节点测试：s101发送数据
+	    s102-s103负责容灾处理
+s101:  source       netcat
+       channel      memory
+       sink group   processor.type = load_balance
+                    processor.selector = round_robin
+
+s102: source        arvo
+      channel       memory
+      sink          logger
+s103: source        arvo
+      channel       memory
+      sink          logger

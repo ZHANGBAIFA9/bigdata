@@ -1,0 +1,17 @@
+多节点测试：s101发送数据
+		    s102-s103负责容灾处理
+s101:  source       netcat
+       channel      memory
+       sink group   processor.type = failover
+                    processor.priority.k1 = 5
+                    processor.priority.k2 = 10
+
+                    sink1         arvo  优先级 5
+                    sink2         arvo  优先级 10
+
+s102: source        arvo
+      channel       memory
+      sink          logger
+s103: source        arvo
+      channel       memory
+      sink          logger
