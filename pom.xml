@@ -18,10 +18,12 @@
         <module>myjava</module>
         <!--hadoop 模块-->
         <module>myhadoop</module>
-        <!--flume 模块-->
-        <module>myflume</module>
         <!--hive 模块-->
         <module>myhive</module>
+        <!--myhbase 模块-->
+        <module>myhbase</module>
+        <!--flume 模块-->
+        <module>myflume</module>
         <!--kafka 模块-->
         <module>mykafka</module>
         <!--zookeeper 模块-->
