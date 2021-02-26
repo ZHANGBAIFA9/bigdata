@@ -13,7 +13,10 @@
     <description>flume 模块</description>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.apache.flume</groupId>
+            <artifactId>flume-ng-core</artifactId>
+        </dependency>
     </dependencies>
     
 </project>

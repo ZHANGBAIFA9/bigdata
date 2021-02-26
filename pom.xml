@@ -41,6 +41,8 @@
         <zookeeper.version>3.4.6</zookeeper.version>
         <!--hadoop 版本-->
         <client.version>2.6.5</client.version>
+        <!--flume 版本-->
+        <flume.version>1.7.0</flume.version>
     </properties>
 
     <dependencyManagement>
@@ -62,28 +64,30 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
             </dependency>
-
             <!--单元测试-->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
             </dependency>
-
             <!--zookeeper 版本-->
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>${zookeeper.version}</version>
             </dependency>
-
             <!--hadoop client 版本-->
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
                 <artifactId>hadoop-client</artifactId>
                 <version>${client.version}</version>
             </dependency>
-
+            <!--flume 版本-->
+            <dependency>
+                <groupId>org.apache.flume</groupId>
+                <artifactId>flume-ng-core</artifactId>
+                <version>${flume.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
