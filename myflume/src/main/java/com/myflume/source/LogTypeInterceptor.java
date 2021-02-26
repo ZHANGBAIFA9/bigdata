@@ -15,10 +15,9 @@ import java.util.Map;
  * @Description:
  */
 public class LogTypeInterceptor implements Interceptor {
-    public void initialize() {
-
-    }
-
+    @Override
+    public void initialize() {}
+    @Override
     public Event intercept(Event event) {
         // 区分日志类型：   body  header
         // 1 获取body数据
@@ -34,7 +33,7 @@ public class LogTypeInterceptor implements Interceptor {
         }
         return event;
     }
-
+    @Override
     public List<Event> intercept(List<Event> events) {
         ArrayList<Event> interceptors = new ArrayList<>();
         for (Event event : events) {
@@ -43,8 +42,9 @@ public class LogTypeInterceptor implements Interceptor {
         }
         return interceptors;
     }
-
+    @Override
     public void close() {}
+
     public static class Builder implements  Interceptor.Builder{
         @Override
         public Interceptor build() {
