@@ -1,0 +1,61 @@
+-- 创建消息通知日志表
+drop table if exists dwd_notification_log;
+CREATE EXTERNAL TABLE dwd_notification_log(
+`mid_id` string,
+`user_id` string,
+`version_code` string,
+`version_name` string,
+`lang` string,
+`source` string,
+`os` string,
+`area` string,
+`model` string,
+`brand` string,
+`sdk_version` string,
+`gmail` string,
+`height_width` string,
+`app_time` string,
+`network` string,
+`lng` string,
+`lat` string,
+`action` string,
+`noti_type` string,
+`ap_time` string,
+`content` string,
+`server_time` string
+)
+PARTITIONED BY (dt string)
+stored as parquet
+location '/warehouse/gmall/dwd/dwd_notification_log/'
+TBLPROPERTIES('parquet.compression'='lzo');
+
+-- 数据加载 脚本
+set hive.exec.dynamic.partition.mode=nonstrict;
+
+insert overwrite table dwd_notification_log
+PARTITION (dt='2020-03-10')
+select
+mid_id,
+user_id,
+version_code,
+version_name,
+lang,
+source,
+os,
+area,
+model,
+brand,
+sdk_version,
+gmail,
+height_width,
+app_time,
+network,
+lng,
+lat,
+get_json_object(event_json,'$.kv.action') action,
+get_json_object(event_json,'$.kv.noti_type') noti_type,
+get_json_object(event_json,'$.kv.ap_time') ap_time,
+get_json_object(event_json,'$.kv.content') content,
+server_time
+from dwd_base_event_log
+where dt='2020-03-10' and event_name='notification';
