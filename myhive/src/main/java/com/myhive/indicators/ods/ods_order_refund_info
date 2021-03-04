@@ -1,0 +1,19 @@
+-- 创建退单表，增量表
+drop table if exists ods_order_refund_info;
+create external table ods_order_refund_info(
+    `id` string COMMENT '编号',
+    `user_id` string COMMENT '用户ID',
+    `order_id` string COMMENT '订单ID',
+    `sku_id` string COMMENT '商品ID',
+    `refund_type` string COMMENT '退款类型',
+    `refund_num` bigint COMMENT '退款件数',
+    `refund_amount` decimal(16,2) COMMENT '退款金额',
+    `refund_reason_type` string COMMENT '退款原因类型',
+    `create_time` string COMMENT '退款时间'
+) COMMENT '退单表'
+PARTITIONED BY (`dt` string)
+row format delimited fields terminated by '\t'
+STORED AS
+  INPUTFORMAT 'com.hadoop.mapred.DeprecatedLzoTextInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+location '/warehouse/gmall/ods/ods_order_refund_info/';

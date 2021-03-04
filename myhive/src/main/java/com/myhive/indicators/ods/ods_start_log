@@ -1,0 +1,14 @@
+-- 启动日志表 创建及数据加载
+drop table if exists ods_start_log;
+CREATE EXTERNAL TABLE ods_start_log (`line` string)
+PARTITIONED BY (`dt` string)
+STORED AS
+  INPUTFORMAT 'com.hadoop.mapred.DeprecatedLzoTextInputFormat'
+  OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION '/warehouse/gmall/ods/ods_start_log';
+
+-- 数据加载
+load data inpath '/origin_data/gmall/log/topic_start/2020-03-10' into table gmall.ods_start_log partition(dt='2020-03-10');
+
+-- 为lzo文件创建索引
+hadoop jar /opt/module/hadoop-2.7.2/share/hadoop/common/hadoop-lzo-0.4.20.jar com.hadoop.compression.lzo.DistributedLzoIndexer /warehouse/gmall/ods/ods_start_log/dt=2020-03-10
