@@ -1,0 +1,10 @@
+-- 导入业务数据到hive的ods
+bin/sqoop import 
+--connect jdbc:mysql://node1:3306/gmall 
+--username root 
+--password root 
+--table activity_info 
+--target-dir /user/hive_ha/warehouse/ods.db/activity_info 
+--delete-target-dir 
+--num-mappers 1 
+--fields-terminated-by "\t"
