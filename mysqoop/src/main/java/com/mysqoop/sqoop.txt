@@ -49,4 +49,3 @@ bin/sqoop import --connect jdbc:mysql://node1:3306/gmall --username root --passw
 
 
 
-
