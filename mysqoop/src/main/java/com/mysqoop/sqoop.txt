@@ -35,7 +35,9 @@ bin/sqoop import
 --columns id ,activity_name,activity_type,activity_desc
 
 # 导入业务数据到hive
-bin/sqoop import --connect jdbc:mysql://node1:3306/gmall --username root --password root --table activity_info --num-mappers 1 --hive-import --fields-terminated-by "\t" --hive-overwrite --hive-table activity_info 
+bin/sqoop import --connect jdbc:mysql://node1:3306/gmall --username root --password root --table activity_info --num-mappers 1 --hive-import --fields-terminated-by "\t" --hive-overwrite --hive-table activity_info
+
+
 
 
 
