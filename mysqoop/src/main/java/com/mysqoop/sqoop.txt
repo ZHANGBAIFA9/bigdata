@@ -1,4 +1,4 @@
--- 导入业务数据到hive的ods
+# 导入业务数据到hdfs
 bin/sqoop import 
 --connect jdbc:mysql://node1:3306/gmall 
 --username root 
@@ -8,3 +8,43 @@ bin/sqoop import
 --delete-target-dir 
 --num-mappers 1 
 --fields-terminated-by "\t"
+
+# 指定查询导入
+bin/sqoop import 
+--connect jdbc:mysql://node1:3306/gmall 
+--username root 
+--password root 
+--table activity_info 
+--target-dir /user/hive_ha/warehouse/ods.db/activity_info 
+--delete-target-dir 
+--num-mappers 1 
+--fields-terminated-by "\t"
+--query 'select id ,activity_name,activity_type,activity_desc from activity_info where id <1 and $CONDITIONS'
+
+
+# 导入业务数据到hdfs,指定列导入
+bin/sqoop import 
+--connect jdbc:mysql://node1:3306/gmall 
+--username root 
+--password root 
+--table activity_info 
+--target-dir /user/hive_ha/warehouse/ods.db/activity_info 
+--delete-target-dir 
+--num-mappers 1 
+--fields-terminated-by "\t"
+--columns id ,activity_name,activity_type,activity_desc
+
+# 导入业务数据到hive
+bin/sqoop import --connect jdbc:mysql://node1:3306/gmall --username root --password root --table activity_info --num-mappers 1 --hive-import --fields-terminated-by "\t" --hive-overwrite --hive-table activity_info 
+
+
+
+
+
+
+
+
+
+
+
+
